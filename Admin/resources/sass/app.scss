@@ -1,0 +1,38 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+
+//Custom Styles
+@import 'moe_style';
+
+
+.bg-login-image {
+    background: url("../../public/img/login/login_image.png");
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .bg-register-image {
+    background: url("https://source.unsplash.com/Mv9hjnEUHR4/600x800");
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .bg-password-image {
+    background: url("https://source.unsplash.com/oWTW-jNGl9I/600x800");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .login-logo
+  {
+    height: 200px;
+    width: 200px;
+    margin-bottom: 50px;
+  }
