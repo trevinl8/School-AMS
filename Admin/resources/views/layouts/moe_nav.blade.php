@@ -69,7 +69,7 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">Create New</a>
+                        <a class="collapse-item" href="{{ route('users.create') }}">Create New</a>
                         <a class="collapse-item" href="#">Mange Existing</a>
                     </div>
                 </div>

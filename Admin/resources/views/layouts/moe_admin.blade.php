@@ -10,7 +10,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }} :: School Enrollment System</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('img/login/logos/favicon.png') }}">
 
     <!-- Fonts -->
