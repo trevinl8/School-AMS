@@ -44,8 +44,8 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="#">Create New</a>
-                        <a class="collapse-item" href="#">Manage Existing</a>
+                        <a class="collapse-item" href="{{ route('schools.create') }}">Create New</a>
+                        <a class="collapse-item" href="{{ route('schools.index') }}">Manage Existing</a>
                     </div>
                 </div>
             </li>
