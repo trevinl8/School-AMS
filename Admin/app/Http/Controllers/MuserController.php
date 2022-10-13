@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Team;
+use App\Models\User;
 
 class MuserController extends Controller
 {
@@ -14,7 +15,8 @@ class MuserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('moe.users.index')->withUsers($users);
     }
 
     /**
@@ -36,7 +38,22 @@ class MuserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $users = new User();
+        $users->name = $request->fullname;
+        $users->designation = $request->designation;
+        $users->email = $request->contact_email;
+        $users->contact = $request->contact_number;
+        $users->password = Hash::make($request->password);
+        $users->save();
+
+        if ($request->organization) {
+            $organization = Team::find(explode(',', $request->organization));
+            $user->teams()->attach($organization);
+          }
+        
+        toast('New user has been created.','success');
+        
+        return redirect()->route('users.index');
     }
 
     /**

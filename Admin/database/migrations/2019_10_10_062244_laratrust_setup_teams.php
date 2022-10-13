@@ -13,13 +13,13 @@ class LaratrustSetupTeams extends Migration
     {
         // Create table for storing teams
         Schema::create('teams', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->string('display_name')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
             $table->string('email')->nullable();
             $table->string('contact')->nullable();
-            $table->string('logo');
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
 
@@ -33,9 +33,9 @@ class LaratrustSetupTeams extends Migration
 
             // Create foreign keys
             $table->foreign('role_id')->references('id')->on('roles')
-                ->onUpdate('cascade')->onDelete('cascade');
+                ->onUpdate('cascade');
             $table->foreign('team_id')->references('id')->on('teams')
-                ->onUpdate('cascade')->onDelete('cascade');
+                ->onUpdate('cascade');
 
             // Create a unique key
             $table->unique(['user_id', 'role_id', 'user_type', 'team_id']);
@@ -47,13 +47,13 @@ class LaratrustSetupTeams extends Migration
             $table->dropPrimary(['permission_id', 'user_id', 'user_type']);
 
             $table->foreign('permission_id')->references('id')->on('permissions')
-                ->onUpdate('cascade')->onDelete('cascade');
+                ->onUpdate('cascade');
 
             // Add team_id column
             $table->unsignedInteger('team_id')->nullable();
 
             $table->foreign('team_id')->references('id')->on('teams')
-                ->onUpdate('cascade')->onDelete('cascade');
+                ->onUpdate('cascade');
 
             $table->unique(['user_id', 'permission_id', 'user_type', 'team_id']);
         });

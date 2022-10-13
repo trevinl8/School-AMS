@@ -38,8 +38,8 @@
                         <input type="text" class="form-control" id="designation" name="designation" placeholder="Principal">
                     </div>
                     <div class="mb-3">
-                        <label for="organization" class="form-label">User Role</label>
-                        <select class="form-select form-select" aria-label=".form-select" id="organization" name="organization">
+                        <label for="role" class="form-label">User Role</label>
+                        <select class="form-select form-select" aria-label=".form-select" id="role" name="role">
                             <option>Select Role</option>
                             <option value="1">{{ $team->display_name }}</option>
                           </select>
@@ -56,33 +56,20 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-2">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                              Set System Generated Password
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                            <label class="form-check-label" for="flexRadioDefault2">
-                              Set Password Manually
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         <div class="mb-3">
-                            <input type="text" class="form-control form-control-lg" id="password" name="password" placeholder="Enter Password Manually">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password">
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
     </div>
     </div>
 </form>
 </div>
+@endsection
+@section('scripts')
 @endsection
