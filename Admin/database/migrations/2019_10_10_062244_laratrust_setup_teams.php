@@ -29,7 +29,7 @@ class LaratrustSetupTeams extends Migration
             $table->dropPrimary(['user_id', 'role_id', 'user_type']);
 
             // Add team_id column
-            $table->unsignedInteger('team_id')->nullable();
+            $table->unsignedBigInteger('team_id')->nullable();
 
             // Create foreign keys
             $table->foreign('role_id')->references('id')->on('roles')
@@ -50,7 +50,7 @@ class LaratrustSetupTeams extends Migration
                 ->onUpdate('cascade');
 
             // Add team_id column
-            $table->unsignedInteger('team_id')->nullable();
+            $table->unsignedBigInteger('team_id')->nullable();
 
             $table->foreign('team_id')->references('id')->on('teams')
                 ->onUpdate('cascade');
