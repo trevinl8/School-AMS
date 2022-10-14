@@ -33,7 +33,7 @@
                         <td>{{ $school->display_name }}</td>
                         <td>{{ $school->email }}</td>
                         <td>{{ $school->contact }}</td>
-                        <td>
+                        <td align="center">
                             <button type="button" class="btn btn-warning btn-sm">Edit</button>
                             <button type="button" class="btn btn-info btn-sm">Delete</button>
                         </td>

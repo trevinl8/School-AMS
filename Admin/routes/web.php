@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SchoolController;
+use App\Http\Controllers\MuserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/schools', SchoolController::class);
+Route::resource('/users', MuserController::class);
