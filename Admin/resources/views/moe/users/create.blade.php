@@ -27,7 +27,7 @@
                         <select class="form-select form-select" aria-label=".form-select" id="organization" name="organization">
                             <option>Select organization</option>
                             @foreach($teams as $team)
-                            <option value="{{ $team->name }}">{{ $team->display_name }}</option>
+                            <option value="{{ $team->id }}">{{ $team->display_name }}</option>
                             @endforeach
                           </select>
                     </div>
@@ -41,7 +41,9 @@
                         <label for="role" class="form-label">User Role</label>
                         <select class="form-select form-select" aria-label=".form-select" id="role" name="role">
                             <option>Select Role</option>
-                            <option value="1">{{ $team->display_name }}</option>
+                            @foreach($roles as $role)
+                            <option value="{{ $role->id }}">{{ $role->display_name }}</option>
+                            @endforeach
                           </select>
                     </div>
                 </div>

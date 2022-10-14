@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Team;
 use App\Models\User;
+use App\Models\Role;
+use Illuminate\Support\Facades\Hash;
 
 class MuserController extends Controller
 {
@@ -26,8 +28,9 @@ class MuserController extends Controller
      */
     public function create()
     {
+        $roles = Role::all();
         $teams = Team::all();
-        return view ('moe.users.create')->withTeams($teams);
+        return view ('moe.users.create')->withTeams($teams)->withRoles($roles);
     }
 
     /**
@@ -46,10 +49,16 @@ class MuserController extends Controller
         $users->password = Hash::make($request->password);
         $users->save();
 
-        if ($request->organization) {
+        if ($request->organization) 
+        {
             $organization = Team::find(explode(',', $request->organization));
-            $user->teams()->attach($organization);
-          }
+            $users->teams()->attach($organization);
+        }
+        
+        if ($request->role) 
+        {
+            $users->syncRoles(explode(',', $request->role));
+        }
         
         toast('New user has been created.','success');
         
