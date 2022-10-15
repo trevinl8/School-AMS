@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\MuserController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// MOE Dashboard Routes
+Route::prefix('moe')->group(function () 
+{
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('/schools', SchoolController::class);
+    Route::resource('/users', MuserController::class);
+});
 
-Route::resource('/schools', SchoolController::class);
-Route::resource('/users', MuserController::class);
+// School Dashboard Routes
+Route::prefix('sch')->group(function () 
+{
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'schoolindex'])->name('dashboard');
+});

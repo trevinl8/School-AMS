@@ -24,7 +24,7 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-        @include('layouts.moe_nav')
+        @include('layouts.sch_nav')
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
