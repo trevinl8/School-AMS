@@ -9,7 +9,7 @@
         <h3>Create New User</h3>
        </div>
        <div class="col-md-6">
-        <input type="submit" class="btn btn-primary float-md-start mx-1 float-md-end" value="Create User">
+        <input type="submit" class="btn btn-dark float-md-start mx-1 float-md-end" value="Create User">
        </div>
     </div>
     <div class="row">

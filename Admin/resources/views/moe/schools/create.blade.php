@@ -9,7 +9,7 @@
         <h3>Create New School</h3>
        </div>
        <div class="col-md-6">
-        <input type="submit" class="btn btn-primary float-md-start mx-1 float-md-end" value="Create School">
+        <input type="submit" class="btn btn-dark float-md-start mx-1 float-md-end" value="Create School">
        </div>
     </div>
     <div class="row">
