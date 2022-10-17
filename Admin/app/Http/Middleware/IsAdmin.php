@@ -18,7 +18,7 @@ class IsAdmin
     {
         if(auth()->user()->is_admin == 1)
         {
-            return $next($request);
+            return redirect()->route('dashboard');
         }
         else if(auth()->user()->is_admin == 2)
         {
@@ -26,8 +26,7 @@ class IsAdmin
         }
         else
         {
-            return redirect('/login')
-            ->with('error', "You do not have access to the admin portal.");
+            return $next($request);
         }
             
         

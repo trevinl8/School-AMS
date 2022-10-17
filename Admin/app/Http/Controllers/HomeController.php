@@ -29,4 +29,9 @@ class HomeController extends Controller
     {
         return view('sch.dashboard');
     }
+
+    public function moeindex()
+    {
+        return view('moe.dashboard');
+    }
 }
