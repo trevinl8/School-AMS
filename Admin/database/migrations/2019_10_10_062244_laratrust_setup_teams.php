@@ -19,6 +19,8 @@ class LaratrustSetupTeams extends Migration
             $table->longText('description')->nullable();
             $table->string('email')->nullable();
             $table->string('contact')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longtitude')->nullable();
             $table->string('logo')->nullable();
             $table->timestamps();
         });

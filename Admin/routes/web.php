@@ -5,6 +5,7 @@ use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\MuserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\SchoolsettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::prefix('moe')->group(function ()
 Route::prefix('sch')->group(function () 
 {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'schoolindex'])->name('dashboard');
+    Route::resource('/myschool', SchoolsettingsController::class);
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
