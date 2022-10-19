@@ -25,15 +25,15 @@ Route::get('/', function () {
 Auth::routes();
 
 // MOE Dashboard Routes
-Route::prefix('moe')->group(function () 
+Route::prefix('moe')->middleware('role:moe_administrator')->group(function () 
 {
-    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'moeindex'])->name('dashboard');
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'moeindex'])->name('moedashboard');
     Route::resource('/schools', SchoolController::class);
     Route::resource('/users', MuserController::class);
 });
 
 // School Dashboard Routes
-Route::prefix('sch')->group(function () 
+Route::prefix('sch')->middleware('role:school_administrator')->group(function () 
 {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'schoolindex'])->name('dashboard');
     Route::resource('/myschool', SchoolsettingsController::class);

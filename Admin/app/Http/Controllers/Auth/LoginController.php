@@ -52,11 +52,15 @@ class LoginController extends Controller
         {
             if(auth()->user()->is_admin == 1)
             {
-                return redirect()->route('home');
+                return redirect()->route('moedashboard');
             }
             elseif(auth()->user()->is_admin == 2)
             {
                 return redirect()->route('dashboard');
+            }
+            else
+            {
+                return redirect()->route('home');
             }
         }
         else
