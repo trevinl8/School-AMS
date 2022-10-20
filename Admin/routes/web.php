@@ -25,7 +25,7 @@ Route::get('/', function () {
 Auth::routes();
 
 // MOE Dashboard Routes
-Route::prefix('moe')->middleware('role:moe_administrator')->group(function () 
+Route::prefix('moe')->group(function () 
 {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'moeindex'])->name('moedashboard');
     Route::resource('/schools', SchoolController::class);
