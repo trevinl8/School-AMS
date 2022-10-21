@@ -8,14 +8,12 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    <h1>This is the MOE Dashboard</h1>
+                    <h1>Welcome {{ Auth::user()->name }}</h1>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
                 </div>
             </div>
         </div>
