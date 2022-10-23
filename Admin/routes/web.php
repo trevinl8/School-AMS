@@ -6,6 +6,7 @@ use App\Http\Controllers\MuserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\SchoolsettingsController;
+use App\Http\Controllers\SchoollookupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,17 +28,18 @@ Auth::routes();
 // MOE Dashboard Routes
 Route::prefix('moe')->group(function () 
 {
-    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'moeindex'])->name('dashboard');
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'moeindex'])->name('moedashboard');
     Route::resource('/schools', SchoolController::class);
     Route::resource('/users', MuserController::class);
 });
 
 // School Dashboard Routes
-Route::prefix('sch')->group(function () 
+Route::prefix('sch')->middleware('role:school_administrator')->group(function () 
 {
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'schoolindex'])->name('dashboard');
     Route::resource('/myschool', SchoolsettingsController::class);
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('/lookup', SchoollookupController::class);
 Route::resource('/applications', ApplicationController::class);

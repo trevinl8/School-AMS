@@ -32,6 +32,6 @@ class HomeController extends Controller
 
     public function moeindex()
     {
-        return view('moe.dashboard');
+        return view('moe.moedashboard');
     }
 }
