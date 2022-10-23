@@ -6,8 +6,11 @@
         <div class="col-md-2"></div>
         <div class="col-md-8" align="center">
             <p class="h1">Find the Best School Near You</p>
-                <a href="{{ route('lookup.index') }}"class="btn btn-primary btn-lg mt-4">Search</a>
-        
+            <form action="{{ route('lookup.store') }}" method="POST">
+            @csrf
+                <input class="form-control form-control-lg mt-2" type="text" placeholder="Enter your Address Here" aria-label=".form-control-lg example" id="from_address" name="addressFrom">
+                <button type="submit" class="btn btn-primary btn-lg mt-4">Lookup</button>
+            </form>
         </div>
         <div class="col-md-2"></div>
     </div>

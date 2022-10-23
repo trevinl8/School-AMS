@@ -6,6 +6,7 @@ use App\Http\Controllers\MuserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\SchoolsettingsController;
+use App\Http\Controllers\SchoollookupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,5 @@ Route::prefix('sch')->middleware('role:school_administrator')->group(function ()
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('/lookup', SchoollookupController::class);
 Route::resource('/applications', ApplicationController::class);
